@@ -1,6 +1,6 @@
 # Zippy
 
-7zip addon for extracting files using keyboard shortcut
+[7zip](https://7-zip.org/) addon for extracting files using keyboard shortcut
 
 
 # Usage
