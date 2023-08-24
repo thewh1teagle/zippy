@@ -15,3 +15,6 @@ Download latest `msi` file and double click it
 - Exit the program  
   The program has tray icon, right click on it then hit `exit`
 
+# Demo
+https://github.com/thewh1teagle/zippy/assets/61390950/f19fa754-4909-4ca1-93a2-bde914e2598a
+
