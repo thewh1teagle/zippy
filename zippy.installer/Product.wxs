@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product 
+			Id="*" 
+			Name="zippy" 
+			Language="1033" 
+			Version="1.0.0.0" 
+			Manufacturer="wix" 
+			UpgradeCode="304e3162-f139-4128-8a46-98f4d04499b5"
+		>
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="zippy" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="zippy.installer" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="Zippy" Guid="768c3c7f-0f9a-4666-aa3e-eea24bba4e9a">
+				<File Id="Zippy.exe" Source="C:\Users\User\Documents\projects\zippy\Zippy\bin\Release\net6.0-windows\publish\win-x64\"></File>
+			</Component>
+		</ComponentGroup>
+		<CustomAction Id="EXECUTE_AFTER_FINALIZE"                  
+              Execute="immediate" 
+              Impersonate="no"
+              Return="asyncNoWait"
+              FileKey="Zippy.exe"
+              ExeCommand="" />
+
+			<InstallExecuteSequence>
+			  <Custom Action="EXECUTE_AFTER_FINALIZE" After="InstallFinalize">NOT Installed</Custom>
+			</InstallExecuteSequence>
+	</Fragment>
+</Wix>

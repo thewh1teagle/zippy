@@ -41,13 +41,12 @@
 
   <ItemGroup>
     <PackageReference Include="MouseKeyHook" Version="5.7.1" />
-    <PackageReference Include="MouseKeyHook.Rx" Version="5.6.0-alpha" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\icon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <EmbeddedResource Include="Resources\icon.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

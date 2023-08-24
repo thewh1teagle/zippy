@@ -1,9 +1,12 @@
 using System;
 using System.Diagnostics;
-using System.Reactive.Linq;
 using System.Windows.Forms;
 using Gma.System.MouseKeyHook;
 using Microsoft.VisualBasic;
+using Microsoft.Win32;
+using System.Resources;
+using System.Reflection;
+using Zippy.Properties;
 
 namespace Zippy
 {
@@ -45,6 +48,15 @@ namespace Zippy
             }
             return selected;
         }
+
+        public static void SetStartup()
+        {
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey
+                ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            rk.SetValue("zippy", Application.ExecutablePath);
+
+        }
     }
 
     public class KeyboardManager
@@ -64,21 +76,21 @@ namespace Zippy
             var files = Utils.GetSelectedFiles();
             foreach (var file in files)
             {
-                if (!Utils.IsFile(file) || !file.EndsWith(".zip"))
-                {
-                    continue;
-                }
+                //if (!Utils.IsFile(file) || !(file.EndsWith(".zip") || file.EndsWith(".exe")))
+                //{
+                //    continue;
+                //}
                 // get absolute path the the same folder of the file
+                Debug.WriteLine(file);
                 string newPath = Path.GetDirectoryName(file);
-                string command = $"x \"{file}\" -o\"{newPath}\"";
-                Debug.WriteLine(command);
+                string args = $"x \"{file}\" -o\"{newPath}\\*\"";
                 string programPath = "C:\\Program Files\\7-Zip\\7zG.exe";
                 if (!Utils.IsFile(programPath))
                 {
                     MessageBox.Show("Can't find 7zip. Please Install it from 7-zip.org");
                 } else
                 {
-                    Process.Start(programPath, $"x \"{file}\" -o\"{newPath}\"");
+                    Process.Start(programPath, args);
                 }
                 
             }
@@ -134,12 +146,14 @@ namespace Zippy
             km = new KeyboardManager();
 
             utils = new Utils();
+            Utils.SetStartup();
 
-
+            
             // Initialize the tray icon and menu
             trayIcon = new NotifyIcon()
             {
-                Icon = new Icon("icon.ico"), // Set your icon here
+
+                Icon = Resources.icon, // Set your icon here
                 Text = "Zippy",
                 Visible = true
             };
