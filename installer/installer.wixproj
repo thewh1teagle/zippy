@@ -6,8 +6,9 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>87682818-aa89-4ac9-b596-5a50b2a70ee5</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>zippy.installer</OutputName>
+    <OutputName>zippy</OutputName>
     <OutputType>Package</OutputType>
+    <Name>installer</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>

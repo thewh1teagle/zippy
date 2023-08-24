@@ -29,7 +29,7 @@
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
 			<Component Id="Zippy" Guid="768c3c7f-0f9a-4666-aa3e-eea24bba4e9a">
-				<File Id="Zippy.exe" Source="C:\Users\User\Documents\projects\zippy\Zippy\bin\Release\net6.0-windows\publish\win-x64\"></File>
+				<File Id="Zippy.exe" Source="..\zippy\bin\Release\net6.0-windows\publish\win-x64\" KeyPath="yes" Checksum="yes"></File>
 			</Component>
 		</ComponentGroup>
 		<CustomAction Id="EXECUTE_AFTER_FINALIZE"                  

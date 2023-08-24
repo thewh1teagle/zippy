@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zippy", "Zippy.csproj", "{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zippy", "zippy\zippy.csproj", "{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "zippy.installer", "..\zippy.installer\zippy.installer.wixproj", "{87682818-AA89-4AC9-B596-5A50B2A70EE5}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "installer", "installer\installer.wixproj", "{87682818-AA89-4AC9-B596-5A50B2A70EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Debug|x86.Build.0 = Debug|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Release|x86.ActiveCfg = Release|Any CPU
-		{078DD4F2-B7C4-450D-BD03-C9B72C5DD5DF}.Release|x86.Build.0 = Release|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Debug|x86.Build.0 = Debug|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F39A7C24-9941-4354-9B24-63BBFD0D9C2F}.Release|x86.Build.0 = Release|Any CPU
 		{87682818-AA89-4AC9-B596-5A50B2A70EE5}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{87682818-AA89-4AC9-B596-5A50B2A70EE5}.Debug|Any CPU.Build.0 = Debug|x86
 		{87682818-AA89-4AC9-B596-5A50B2A70EE5}.Debug|x86.ActiveCfg = Debug|x86

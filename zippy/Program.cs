@@ -6,7 +6,7 @@ using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System.Resources;
 using System.Reflection;
-using Zippy.Properties;
+using zippy.Properties;
 
 namespace Zippy
 {
