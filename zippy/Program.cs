@@ -65,13 +65,13 @@ namespace Zippy
 
 
 
-        public void DoSomethingInThread()
+        public void ExtractInThread()
         {
-            Thread newThread = new(DoSomething);
+            Thread newThread = new(Extract);
             newThread.SetApartmentState(ApartmentState.STA);
             newThread.Start();
         }
-         public void DoSomething()
+         public void Extract()
         {
             var files = Utils.GetSelectedFiles();
             foreach (var file in files)
@@ -101,7 +101,7 @@ namespace Zippy
             var comb = Combination.TriggeredBy(Keys.E).With(Keys.LControlKey);
             var assignment = new Dictionary<Combination, Action>
              {
-                 {comb, DoSomethingInThread}
+                 {comb, ExtractInThread}
              };
             // Note: for the application hook, use the Hook.AppEvents() instead
             Hook.GlobalEvents().OnCombination(assignment);
