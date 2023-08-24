@@ -73,7 +73,7 @@ namespace Zippy
         }
          public void Extract()
         {
-            var files = Utils.GetSelectedFiles();
+            var files = Utils.GetSelectedFiles().Distinct().ToList();
             foreach (var file in files)
             {
                 //if (!Utils.IsFile(file) || !(file.EndsWith(".zip") || file.EndsWith(".exe")))
@@ -81,16 +81,22 @@ namespace Zippy
                 //    continue;
                 //}
                 // get absolute path the the same folder of the file
-                Debug.WriteLine(file);
-                string newPath = Path.GetDirectoryName(file);
-                string args = $"x \"{file}\" -o\"{newPath}\\*\"";
+                string folderPath = Path.GetDirectoryName(file);
+                string args = $"x \"{file}\" -o\"{folderPath}\\*\"";
                 string programPath = "C:\\Program Files\\7-Zip\\7zG.exe";
                 if (!Utils.IsFile(programPath))
                 {
                     MessageBox.Show("Can't find 7zip. Please Install it from 7-zip.org");
                 } else
                 {
-                    Process.Start(programPath, args);
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = programPath,
+                        WorkingDirectory = folderPath,
+                        Arguments = args,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
                 }
                 
             }
@@ -108,23 +114,8 @@ namespace Zippy
              
         }
 
-        void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            //Console.WriteLine("KeyPress: \t{0}", e.KeyChar);
-        }
-
-        public void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
-        {
-
-            // uncommenting the following line will suppress the middle mouse button click
-            // if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }
-        }
-
         public void Unsubscribe()
         {
-            m_GlobalHook.MouseDownExt -= GlobalHookMouseDownExt;
-            m_GlobalHook.KeyPress -= GlobalHookKeyPress;
 
             //It is recommened to dispose it
             m_GlobalHook.Dispose();
