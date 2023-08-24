@@ -132,6 +132,11 @@ namespace Zippy
         private Utils utils;
 
 
+        private void openAbout(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", "https://github.com/thewh1teagle/zippy");
+        }
+
         public MainContext()
         {
             km = new KeyboardManager();
@@ -150,6 +155,7 @@ namespace Zippy
             };
 
             trayMenu = new ContextMenuStrip();
+            trayMenu.Items.Add("About", null, openAbout);
             trayMenu.Items.Add("Exit", null, ExitMenuItem_Click);
 
             trayIcon.ContextMenuStrip = trayMenu;
