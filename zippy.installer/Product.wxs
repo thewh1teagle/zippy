@@ -11,7 +11,7 @@
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate EmbedCab="yes" />
 
 		<Feature Id="ProductFeature" Title="zippy" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
@@ -21,7 +21,7 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="zippy.installer" />
+				<Directory Id="INSTALLFOLDER" Name="zippy" />
 			</Directory>
 		</Directory>
 	</Fragment>
@@ -37,7 +37,7 @@
               Impersonate="no"
               Return="asyncNoWait"
               FileKey="Zippy.exe"
-              ExeCommand="" />
+              ExeCommand="[SystemFolder]cmd.exe /C start Zippy.exe" />
 
 			<InstallExecuteSequence>
 			  <Custom Action="EXECUTE_AFTER_FINALIZE" After="InstallFinalize">NOT Installed</Custom>
