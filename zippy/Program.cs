@@ -110,7 +110,8 @@ namespace Zippy
                         FileName = programPath,
                         WorkingDirectory = folderPath,
                         Arguments = args,
-                        UseShellExecute = true
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Normal
                     };
                     Process.Start(startInfo);
                 }
@@ -149,7 +150,7 @@ namespace Zippy
 
 
         private void openAbout(object sender, EventArgs e)
-        {
+        {            
             Process.Start("explorer.exe", "https://github.com/thewh1teagle/zippy");
         }
 
