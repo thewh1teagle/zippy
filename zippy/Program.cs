@@ -85,15 +85,22 @@ namespace Zippy
             var files = Utils.GetSelectedFiles().Distinct().ToList();
             foreach (var file in files)
             {
-                //if (!Utils.IsFile(file) || !(file.EndsWith(".zip") || file.EndsWith(".exe")))
-                //{
-                //    continue;
-                //}
                 // get absolute path the the same folder of the file
                 string folderPath = Path.GetDirectoryName(file);
                 string args = $"x \"{file}\" -o\"{folderPath}\\*\"";
-                string programPath = "C:\\Program Files\\7-Zip\\7zG.exe";
-                if (!Utils.IsFile(programPath))
+
+                string x86Path = "C:\\Program Files (x86)\\7-Zip\\7zG.exe";
+                string x64Path = "C:\\Program Files\\7-Zip\\7zG.exe";
+
+                string programPath = "";
+                if (Utils.IsFile(x64Path))
+                {
+                    programPath = x64Path;
+                } else if (Utils.IsFile(x86Path))
+                {
+                    programPath = x86Path;
+                }
+                if (programPath == "")
                 {
                     MessageBox.Show("Can't find 7zip. Please Install it from 7-zip.org");
                 } else
