@@ -7,12 +7,18 @@ using Microsoft.Win32;
 using System.Resources;
 using System.Reflection;
 using zippy.Properties;
+using System.Runtime.InteropServices;
 
 namespace Zippy
 {
 
     public class Utils
+
     {
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+        
         public static bool IsFile(string path)
         {
             try
@@ -30,12 +36,15 @@ namespace Zippy
         {
             string filename;
             List<String> selected = new List<String>();
+            var foreground = GetForegroundWindow();
+            
             foreach (SHDocVw.InternetExplorer window in new SHDocVw.ShellWindows())
             {
-                //if (!(window.Top == 0))
-                //{
-                //    continue;
-                //}
+                var isTop = window.HWND == (long)foreground;
+                if (!isTop)
+                {
+                    continue;
+                }
                 filename = Path.GetFileNameWithoutExtension(window.FullName).ToLower();
                 if (filename.ToLowerInvariant() == "explorer")
                 {
